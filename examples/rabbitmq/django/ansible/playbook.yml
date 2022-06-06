@@ -58,7 +58,7 @@
       shell:
       args:
         executable: /usr/bin/bash
-        cmd: docker-compose up
+        cmd: docker-compose up -d
         chdir: "{{ playbook_dir }}/app"
     #   register: deploy_k3ai_cluster_results
       when: compose_up == true
