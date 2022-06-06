@@ -3,21 +3,19 @@
 # //////////////////////////////
 # PLACE DEPENCENCIES HERE
 # //////////////////////////////
-cat <<EOF >../app/requirements.txt
+cat <<EOF >$PLAYBOOK_DIR/app/requirements.txt
 
-django==3.1.3
-djangorestframework==3.12.2
-mysqlclient==2.0.1
-djangomysql==3.9
-django-cors-headers==3.5.0
-pika==1.1.0
+django
+djangorestframework
+django-cors-headers
+pika
 
 EOF
 
 # //////////////////////////////
 # CREATE .ENV FILE
 # //////////////////////////////
-cat <<EOF >../app/.env
+cat <<EOF >$PLAYBOOK_DIR/app/.env
 
 DJANGO_PORT=$DJANGO_PORT
 
@@ -26,9 +24,15 @@ EOF
 # //////////////////////////////
 # CREATE PROJECT / APPS
 # //////////////////////////////
-source ../app/ms-init.sh
+if [[ ! -d "$PLAYBOOK_DIR/app/core/api" ]]
+then
+    cd ../app
+    django-admin startproject core .
+    cd core
+    django-admin startapp api
+    cd ../..
+    exit
+fi
 
-# //////////////////////////////
-# CREATE IMAGE / PUSH
-# //////////////////////////////
-# source ./build.sh
+
+
