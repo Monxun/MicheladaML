@@ -1,0 +1,53 @@
+---
+
+# ///////////////////////////////////////
+# MICROSERVICE VARS
+# ///////////////////////////////////////
+
+microservice_name: microservice-ms
+image_repo: 
+build_id: 0.0.1
+
+django_port: 8000
+host_port: 9444
+
+
+# DJANGO ///////////////////////////////////////
+
+# ///////////////////////////////////////
+# DEV VARS
+# ///////////////////////////////////////
+
+# DEV SETTINGS
+dev_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"
+dev_debug: True
+dev_allowed_hosts: [localhost, monxun-mint]
+
+# DEV DB VARS
+dev_engine_type: django.db.backends.postgresql
+dev_db_host: db-cluster-service
+dev_db_name: microservice-db
+dev_db_user: root
+dev_db_pass: password
+dev_db_port: 5432
+
+
+# ///////////////////////////////////////
+# PROD VARS
+# ///////////////////////////////////////
+
+# PROD SETTINGS
+prod_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"
+prod_debug: True
+prod_allowed_hosts: [localhost, monxun-mint]
+
+# PROD DB VARS
+prod_engine_type: django.db.backends.postgresql
+prod_db_host: db-cluster-service
+prod_db_name: microservice-db
+prod_db_user: root
+prod_db_pass: password
+prod_db_port: 5432
+
+
+# RABBITMQ ///////////////////////////////////////

@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  backend:
+    container_name: $MS_NAME
+    image: $MS_NAME:$BUILD_ID
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - $HOST_PORT:$DJANGO_PORT
+    volumes:
+      - .:/app
+  
+  db:
+    container_name: db-$MS_NAME
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
