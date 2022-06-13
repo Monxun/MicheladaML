@@ -6,11 +6,13 @@
 cat <<EOF >$PLAYBOOK_DIR/app/requirements.txt
 
 django
-djangorestframework
-django-cors-headers
+django-ninja
+psycopg2-binary
 pika
 
 EOF
+
+# mapfile -t $MS_DEPENCENCIES > $PLAYBOOK_DIR/app/requirements.txt
 
 # //////////////////////////////
 # CREATE .ENV FILE
@@ -18,6 +20,21 @@ EOF
 cat <<EOF >$PLAYBOOK_DIR/app/.env
 
 DJANGO_PORT=$DJANGO_PORT
+DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
+DJANGO_ALLOWED_HOSTS=$DJANGO_ALLOWED_HOSTS
+DJANGO_DEBUG=$DJANGO_DEBUG
+
+DB_ENGINE=$DB_ENGINE
+DB_NAME=$DB_NAME
+DB_USER=$DB_USER
+DB_PASSWORD=$DB_PASSWORD
+DB_HOST=db-$MS_NAME
+DB_PORT=$DB_PORT
+DB_OPTIONS=$DB_OPTIONS
+
+POSTGRES_USER=$DB_USER
+POSTGRES_PASSWORD=$DB_PASSWORD
+POSTGRES_DB=$DB_NAME
 
 EOF
 
