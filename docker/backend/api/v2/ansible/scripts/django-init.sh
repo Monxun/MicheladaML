@@ -5,12 +5,14 @@
 # //////////////////////////////
 cat <<EOF >$PLAYBOOK_DIR/app/requirements.txt
 
-for val in $MS_DEPENDENCIES
-do
-    echo "$val"
-done
+django
+django-ninja
+psycopg2-binary
+pika
 
 EOF
+
+# mapfile -t $MS_DEPENCENCIES > $PLAYBOOK_DIR/app/requirements.txt
 
 # //////////////////////////////
 # CREATE .ENV FILE
@@ -29,6 +31,10 @@ DB_PASSWORD=$DB_PASSWORD
 DB_HOST=db-$MS_NAME
 DB_PORT=$DB_PORT
 DB_OPTIONS=$DB_OPTIONS
+
+POSTGRES_USER=$DB_USER
+POSTGRES_PASSWORD=$DB_PASSWORD
+POSTGRES_DB=$DB_NAME
 
 EOF
 

@@ -26,6 +26,8 @@
     HOST_PORT: "{{ host_port }}"
 
     # DEV OR PROD /////////////////////////////////////
+    MS_DEPENDENCIES: "{{ vars[dev_prod + '_dependencies'] }}"
+
     DJANGO_SECRET_KEY: "{{ vars[dev_prod + '_secret_key'] }}"
     DJANGO_ALLOWED_HOSTS: "{{ vars[dev_prod + '_allowed_hosts'] }}"
     DJANGO_DEBUG: "{{ vars[dev_prod + '_debug'] }}"

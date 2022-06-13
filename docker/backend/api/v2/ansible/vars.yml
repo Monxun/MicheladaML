@@ -4,7 +4,7 @@
 # MICROSERVICE VARS
 # ///////////////////////////////////////
 
-microservice_name: microservice-ms
+microservice_name: api-ms
 image_repo: 
 build_id: 0.0.1
 
@@ -23,20 +23,20 @@ dev_prod: dev
 dev_dependencies: [
   "django",
   "djangoninja",
-  "pika"
+  "pika",
+  "psycopg2-binary"
   ]
 
 # DEV SETTINGS
 dev_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"
 dev_debug: True
-dev_allowed_hosts: [localhost, monxun-mint, '*']
+dev_allowed_hosts: ["localhost", "monxun-mint", "*"]
 
 # DEV DB VARS
 dev_engine_type: django.db.backends.postgresql
-dev_db_host: db-cluster-service
-dev_db_name: microservice-db
-dev_db_user: root
-dev_db_pass: password
+dev_db_name: api-db
+dev_db_user: dev
+dev_db_pass: p4ssw0rd
 dev_db_port: 5432
 dev_db_options: {
     # 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'" 
@@ -51,20 +51,20 @@ dev_db_options: {
 prod_dependencies: [
   "django",
   "djangoninja",
-  "pika"
+  "pika",
+  "psycopg2"
   ]
 
 # PROD SETTINGS
 prod_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"
 prod_debug: True
-prod_allowed_hosts: [localhost, monxun-mint]
+prod_allowed_hosts: ["localhost", "monxun-mint", "*"]
 
 # PROD DB VARS
 prod_engine_type: django.db.backends.postgresql
-prod_db_host: db-cluster-service
-prod_db_name: microservice-db
-prod_db_user: root
-prod_db_pass: password
+prod_db_name: api-db
+prod_db_user: prod
+prod_db_pass: p4ssw0rd
 prod_db_port: 5432
 
 

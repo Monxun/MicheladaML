@@ -5,9 +5,10 @@
 # //////////////////////////////
 cat <<EOF >$PLAYBOOK_DIR/app/requirements.txt
 
-django
-djangoninja
-pika
+for val in $MS_DEPENDENCIES
+do
+    echo "$val"
+done
 
 EOF
 

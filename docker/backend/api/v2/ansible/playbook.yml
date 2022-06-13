@@ -16,7 +16,7 @@
 # ////////////////////////////////////////////////////////////////////////////////////////
   environment:
 
-    PLAYBOOK_DIR: "{{ vars[dev_prod + 'playbook_dir'] }}"
+    PLAYBOOK_DIR: "{{ playbook_dir }}"
 
     MS_NAME: "{{ microservice_name }}"
     IMAGE_REPO: "{{ image_repo }}"
@@ -24,6 +24,21 @@
 
     DJANGO_PORT: "{{ django_port }}"
     HOST_PORT: "{{ host_port }}"
+
+    # DEV OR PROD /////////////////////////////////////
+    MS_DEPENDENCIES: "{{ vars[dev_prod + '_dependencies'] }}"
+
+    DJANGO_SECRET_KEY: "{{ vars[dev_prod + '_secret_key'] }}"
+    DJANGO_ALLOWED_HOSTS: "{{ vars[dev_prod + '_allowed_hosts'] }}"
+    DJANGO_DEBUG: "{{ vars[dev_prod + '_debug'] }}"
+
+    DB_ENGINE: "{{ vars[dev_prod + '_engine_type'] }}"
+    DB_NAME: "{{ vars[dev_prod + '_db_name'] }}"
+    DB_USER: "{{ vars[dev_prod + '_db_user'] }}"
+    DB_PASSWORD: "{{ vars[dev_prod + '_db_pass'] }}"
+    DB_PORT: "{{ vars[dev_prod + '_db_port'] }}"
+    DB_OPTIONS: "{{ vars[dev_prod + '_db_options'] }}"
+
 
 # ////////////////////////////////////////////////////////////////////////////////////////
 #  TASKS
