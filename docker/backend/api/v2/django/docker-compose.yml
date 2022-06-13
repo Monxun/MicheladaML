@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  backend:
+    container_name: $MS_NAME
+    image: $MS_NAME:$BUILD_ID
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - ./.env
+    ports:
+      - $HOST_PORT:$DJANGO_PORT
+    volumes:
+      - .:/app
+    depends_on: 
+      - db
+    networks:
+      - michelada
+  
+  db:
+    container_name: db-$MS_NAME
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    env_file:
+      - ./.env
+    networks:
+      - michelada
+
+  adminer:
+    container_name: adminer
+    image: adminer
+    restart: always
+    ports:
+      - 7080:8080
+    networks:
+      - michelada
+
+
+networks:
+  michelada:
