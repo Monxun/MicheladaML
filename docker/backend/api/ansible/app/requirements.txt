@@ -1,5 +1,6 @@
 
 django
-django-ninja
+djangorestframework
+django-cors-headers
 pika
 

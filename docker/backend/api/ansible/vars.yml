@@ -18,6 +18,13 @@ host_port: 9444
 # DEV VARS
 # ///////////////////////////////////////
 
+# DEV DEPENDENCIES
+dev_dependencies: [
+  "django",
+  "djangoninja",
+  "pika"
+  ]
+
 # DEV SETTINGS
 dev_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"
 dev_debug: True
@@ -35,6 +42,13 @@ dev_db_port: 5432
 # ///////////////////////////////////////
 # PROD VARS
 # ///////////////////////////////////////
+
+# PROD DEPENDENCIES
+prod_dependencies: [
+  "django",
+  "djangoninja",
+  "pika"
+  ]
 
 # PROD SETTINGS
 prod_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"

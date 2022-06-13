@@ -6,8 +6,7 @@
 cat <<EOF >$PLAYBOOK_DIR/app/requirements.txt
 
 django
-djangorestframework
-django-cors-headers
+djangoninja
 pika
 
 EOF
