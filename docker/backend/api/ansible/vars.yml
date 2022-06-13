@@ -4,7 +4,7 @@
 # MICROSERVICE VARS
 # ///////////////////////////////////////
 
-microservice_name: microservice-ms
+microservice_name: api-ms
 image_repo: 
 build_id: 0.0.1
 
@@ -21,7 +21,7 @@ host_port: 9444
 # DEV SETTINGS
 dev_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"
 dev_debug: True
-dev_allowed_hosts: [localhost, monxun-mint]
+dev_allowed_hosts: [localhost, monxun-mint, '*']
 
 # DEV DB VARS
 dev_engine_type: django.db.backends.postgresql
@@ -39,7 +39,7 @@ dev_db_port: 5432
 # PROD SETTINGS
 prod_secret_key: "q1y1*!a&3v5s-hf7ngbue4(z*@lq*0j!_)q$uw!1#70ot-hn0y"
 prod_debug: True
-prod_allowed_hosts: [localhost, monxun-mint]
+prod_allowed_hosts: [localhost, monxun-mint, '*']
 
 # PROD DB VARS
 prod_engine_type: django.db.backends.postgresql
